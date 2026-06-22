@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 简明指南 | official-wccup.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f6f8fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1f2e44 100%);
+            color: #e4edf5;
+            padding: 4.5rem 2rem 3.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #f3b548;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #b6cadf;
+            max-width: 540px;
+            margin: 0.6rem auto 0;
+            font-weight: 350;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: rgba(243, 181, 72, 0.2);
+            border: 1px solid rgba(243, 181, 72, 0.4);
+            color: #f3b548;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 1.4rem;
+        }
+
+        /* 正文区 浅色背景 */
+        .content-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .intro-block p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-block strong {
+            font-weight: 550;
+            color: #0b1a2e;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.5rem 0 2.2rem;
+        }
+
+        .card {
+            background: #f9fbfd;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #eaeef3;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 20, 40, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #0f263b;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 span {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2b3e54;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e4edf5;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #1a2b3d;
+            margin-top: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #c4452c;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #a1331d;
+            border-bottom: 1px solid #c4452c;
+        }
+
+        /* 自然段落与引用 */
+        .note-box {
+            background: #f2f6fc;
+            border-left: 4px solid #f3b548;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .note-box p {
+            margin: 0;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini {
+            margin: 2.4rem 0 0.6rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5eaf0;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0f263b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #33485f;
+            margin-top: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e0e7ef;
+            font-size: 0.85rem;
+            color: #5a6f84;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3rem 1.2rem 2.6rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .content-wrapper {
+                padding: 1.8rem 1.2rem 3rem;
+            }
+            .intro-block p {
+                font-size: 0.98rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>世界杯 · 简明指南</h1>
+        <p class="sub">赛程、看点与基础信息 —— 帮助你在信息洪流中快速定位</p>
+        <span class="badge">⚽ 2026 预选赛阶段</span>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <div class="content-wrapper">
+
+        <!-- 自然引入 + 链接 -->
+        <div class="intro-block">
+            <p>
+                每隔四年，全世界都会把目光投向同一项赛事：<a href="https://official-wccup.com">世界杯</a>。它既是竞技巅峰，也是不同文化汇聚的节点。无论你是一直关注的老球迷，还是偶然想了解的新观众，这份索引都试图为你提供一份不夸张、不堆砌的参照。
+            </p>
+            <p>
+                很多人在大赛年感到信息过载——赛程、转播、场馆、历史记录…… 其实只需抓住几条主线，就能从容跟上节奏。下面从几个常见的使用场景入手，帮你筛选出真正有用的部分。
+            </p>
+        </div>
+
+        <!-- 信息卡片（用途卡片） -->
+        <div class="card-grid">
+            <div class="card">
+                <h3><span>📋</span> 赛历速览</h3>
+                <p>小组赛阶段几乎每天都有多场对决。提前标记你关注的队伍和时段，避免因时差错过关键场次。官方页面的赛程表会随晋级结果动态更新。</p>
+                <span class="tag">时间轴</span>
+            </div>
+            <div class="card">
+                <h3><span>🏟️</span> 场馆与城市</h3>
+                <p>主办城市各有特色，从球场容量到周边交通都有官方指引。如果你计划亲临现场，可以提前查阅场馆座位图及无障碍服务信息。</p>
+                <span class="tag">旅行参考</span>
+            </div>
+            <div class="card">
+                <h3><span>📊</span> 数据与纪录</h3>
+                <p>历史射手榜、夺冠次数、最大分差…… 客观数据能帮你快速理解一支球队的背景。这些纪录在历届比赛后都会修正，以官方统计为准。</p>
+                <span class="tag">档案</span>
+            </div>
+            <div class="card">
+                <h3><span>🔁</span> 实时资讯</h3>
+                <p>比赛日当天，比分、阵容、红黄牌等动态信息通常滞后于现场几分钟。建议同时关注赛事官方社交渠道作为补充。</p>
+                <span class="tag">动态</span>
+            </div>
+        </div>
+
+        <!-- 适合人群 + 强调 -->
+        <div class="note-box">
+            <p><strong>适合谁参考？</strong> 准备和朋友一起观赛但需要补课的人、想在社交平台参与讨论而不出错的新手、计划带孩子感受大赛气氛的家庭，以及只想安静看完几场经典对决的普通观众。没有门槛，你只需要一点好奇心。</p>
+        </div>
+
+        <!-- 自然链接段落 (第二处链接，句子嵌入) -->
+        <p style="margin-top: 1.2rem;">
+            如果你希望获得最直接的原始信息源，可以浏览 <a href="https://official-wccup.com">世界杯</a> 的官方页面。那里聚合了赛事公告、票务指引和媒体中心内容，比第三方转载更可靠。注意认准域名，避免误入仿冒站点。
+        </p>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h3 style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.3rem; color: #0f263b;">常见疑问摘要</h3>
+
+            <div class="faq-item">
+                <div class="faq-q">⚪ 世界杯多久举办一次？</div>
+                <div class="faq-a">每四年一届，下一届（第23届）将于2026年由美国、加拿大、墨西哥联合举办。赛制从32队扩军至48队。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">⚪ 从哪里获取官方赛程？</div>
+                <div class="faq-a">最准确的赛程表始终以 <a href="https://official-wccup.com">世界杯</a> 官网发布为准。注意部分平台会使用旧版赛历或错误时区。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">⚪ 我该相信哪些数据统计？</div>
+                <div class="faq-a">国际足联官方统计及赛事官方报告是最终依据。媒体二次整理的数据有时会因口径不同产生细微差异。</div>
+            </div>
+        </div>
+
+        <!-- 底部提醒 -->
+        <div class="footer-note">
+            <p>本页面仅作为信息索引，不提供直播或博彩服务。所有内容均以官方披露为准。<br>遇到来源不明的“内部消息”或付费链接请保持警惕。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
